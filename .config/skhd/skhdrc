@@ -81,10 +81,14 @@ hyper - return : yabai -m window --focus stack.next || yabai -m window --focus s
 
 # Add the active window  to the window or stack to the {direction}
 # Note that this only works when the active window does *not* already belong to a stack
-cmd + ctrl - left  : yabai -m window west --stack $(yabai -m query --windows --window | jq -r '.id')
-cmd + ctrl - down  : yabai -m window south --stack $(yabai -m query --windows --window | jq -r '.id')
-cmd + ctrl - up    : yabai -m window north --stack $(yabai -m query --windows --window | jq -r '.id')
-cmd + ctrl - right : yabai -m window east --stack $(yabai -m query --windows --window | jq -r '.id')
+# cmd + ctrl - left  : yabai -m window west --stack $(yabai -m query --windows --window | jq -r '.id')
+# cmd + ctrl - down  : yabai -m window south --stack $(yabai -m query --windows --window | jq -r '.id')
+# cmd + ctrl - up    : yabai -m window north --stack $(yabai -m query --windows --window | jq -r '.id')
+# cmd + ctrl - right : yabai -m window east --stack $(yabai -m query --windows --window | jq -r '.id')
+cmd + ctrl - left  : "${HOME}"/.config/skhd/stack.sh west
+cmd + ctrl - down  : "${HOME}"/.config/skhd/stack.sh south
+cmd + ctrl - up    : "${HOME}"/.config/skhd/stack.sh north
+cmd + ctrl - right : "${HOME}"/.config/skhd/stack.sh east
 
 ## float / unfloat window and center on screen
 hyper - d : yabai -m window --toggle float;
