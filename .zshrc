@@ -93,6 +93,9 @@ export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
 
+# use control and space to pick suggestion
+bindkey '^ ' autosuggest-accept
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -109,9 +112,20 @@ alias l="exa -lah -snew"
 alias c="clear"
 #alias cat="bat"
 alias v="nvim"
+alias dowork="~/scripts/switch-profile.sh work"
+alias doplay="~/scripts/switch-profile.sh play"
 
 ##zoxide
 eval "$(zoxide init zsh)"
+
+## brew snippet for sketchybar
+function brew() {
+  command brew "$@" 
+
+  if [[ $* =~ "upgrade" ]] || [[ $* =~ "update" ]] || [[ $* =~ "outdated" ]]; then
+    sketchybar --trigger brew_update
+  fi
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

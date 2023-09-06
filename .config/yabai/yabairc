@@ -1,8 +1,21 @@
 #!/usr/bin/env sh
 #YABAI CONFIGURATION 
 
+# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+yabai -m signal --add event=display_added action="sleep 1 && $HOME/.config/yabai/create_spaces.sh"
+yabai -m signal --add event=display_removed action="sleep 1 && $HOME/.config/yabai/create_spaces.sh"
+yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=mission_control_exit action="$HOME/.config/yabai/refresh_paddings.sh"
+
+$HOME/.config/yabai/create_spaces.sh
+
 # bsp or float (default: bsp)
-#yabai -m config layout bsp
+yabai -m config layout bsp
 
 # My custom space names for my 3 monitor setup. These names are used in some of my scripts.
 yabai -m space 1 --label one
@@ -14,26 +27,39 @@ yabai -m space 6 --label six
 yabai -m space 9 --label nine
 
 # float system preferences. Most of these just diable Yabai form resizing them.
-yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Karabiner-Elements$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Alfred Preferences$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
-yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Messages$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Messenger$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Stats$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Bartender$" sticky=on layer=above manage=off
+# yabai -m rule --add app="^System Settings$" sticky=on layer=above manage=off
+# yabai -m rule --add app="^Karabiner-Elements$" sticky=on layer=above manage=off
+# yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on layer=above manage=off
+# yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
+# yabai -m rule --add app="^Alfred Preferences$" sticky=on layer=above manage=off
+# yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
+# yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
+# yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
+# yabai -m rule --add app="^Messages$" sticky=on layer=above manage=off
+# yabai -m rule --add app="^Messenger$" sticky=on layer=above manage=off
+# yabai -m rule --add app="^Stats$" sticky=on layer=above manage=off
+# yabai -m rule --add app="^Bartender$" sticky=on layer=above manage=off
+
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Alfred Preferences$" manage=off
+yabai -m rule --add app="^Disk Utility$" manage=off
+yabai -m rule --add app="^System Information$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
+yabai -m rule --add app="^Messenger$" manage=off
+yabai -m rule --add app="^Stats$" manage=off
+yabai -m rule --add app="^Bartender$" manage=off
 yabai -m rule --add app="^Path Finder$" manage=off
-yabai -m rule --add app="^TeamViewer$" sticky=off layer=above manage=off
 yabai -m rule --add app="Fantastical" manage=off
 yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^Calender$" manage=off
 yabai -m rule --add app="^TickTick$" manage=off
 #yabai -m rule --add app="^iTerm2$" manage=off
 yabai -m rule --add label="Firfox PIP" app="^Firefox$" title="^(Picture-in-Picture)$" manage=off
+yabai -m rule --add label="Microsoft Teams Notification" app="^Microsoft Teams$" title="^Microsoft Teams Notification$" manage=off
 yabai -m rule --add app="^Flux$" manage=off
 yabai -m rule --add app="^Time Out$" manage=off
 yabai -m rule --add app="^console$" manage=off
@@ -44,11 +70,35 @@ yabai -m rule --add app="^1Password$" manage=off
 yabai -m rule --add app="^MonitorControl$" manage=off
 yabai -m rule --add app="^AltTab$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
-yabai -m rule --add app="^CleanShot X$" manage=off
 yabai -m rule --add app="^Rectangle$" manage=off
 yabai -m rule --add app="^SpaceLauncher$" manage=off
 yabai -m rule --add app="^Übersicht$" manage=off
 yabai -m rule --add app="^Cyberghost$" manage=off
+yabai -m rule --add app="^CleanShot X$" manage=off
+yabai -m rule --add app="^CleanShot$" manage=off
+yabai -m rule --add app="^Music$" manage=off
+yabai -m rule --add app="^BetterDisplay$" manage=off
+yabai -m rule --add app="^Reminders$" manage=off
+yabai -m rule --add app="^Hue Menu Bar$" manage=off
+yabai -m rule --add app="^Installer$" manage=off
+yabai -m rule --add app="^Homerow$" manage=off
+
+# Fuck Microsoft Teams and their stupid notification system
+yabai -m rule --add \
+    app='^Microsoft Teams$' \
+    title='^Microsoft Teams Notification$' \
+    border=off
+
+yabai -m signal --add \
+      event=application_activated \
+      app="^Microsoft Teams$" \
+      action='${HOME}/.config/yabai/defeat_teams.sh'
+
+yabai -m signal --add \
+      event=window_focused \
+      app="^Microsoft Teams$" \
+      title="^Microsoft Teams Notification$" \
+      action='${HOME}/.config/yabai/defeat_teams.sh'
 
 # New window spawns to the right if vertical split, or bottom if horizontal split
 yabai -m config window_placement second_child
@@ -58,15 +108,21 @@ yabai -m config window_opacity off
 yabai -m config window_opacity_duration 0.00
 yabai -m config active_window_opacity 1.0
 yabai -m config normal_window_opacity 0.90
-#yabai -m config window_border                on | off
-yabai -m config window_border_blur off
+
+yabai -m window_animation_duration 0.3
 
 # Border highlighting for active window
 yabai -m config window_border on
+yabai -m config window_border_hidpi off
+yabai -m config window_border_blur off
 yabai -m config window_border_width 3
-yabai -m config active_window_border_color 0xFF40FF00
-yabai -m config normal_window_border_color 0x00FFFFFF
-yabai -m config insert_feedback_color        0xffd75f5f
+yabai -m config window_border_radius 11
+yabai -m config active_window_border_color 0xffe1e3e4
+yabai -m config normal_window_border_color 0xff494d64
+yabai -m config insert_feedback_color      0xff9dd274
+
+# set mouse follows focus mode (default: off)
+# yabai -m config mouse_follows_focus on
 
 ## some other settings
 yabai -m config auto_balance off
@@ -80,11 +136,21 @@ yabai -m config mouse_action2 move
 
 ## Paddings
 yabai -m config layout bsp
-yabai -m config top_padding 5
+#yabai -m config top_padding 7
+yabai -m config top_padding 38
 yabai -m config bottom_padding 5
 yabai -m config left_padding 5
 yabai -m config right_padding 5
 yabai -m config window_gap 3
+
+## Display specific paddings
+#yabai -m config external_bar main:7:0
+#yabai -m config --space 4 top_padding 38
+#yabai -m config --space 5 top_padding 38
+#yabai -m config --space 6 top_padding 38
+#yabai -m config --space 7 top_padding 38
+#yabai -m config --space 8 top_padding 38
+#yabai -m config --space 9 top_padding 38
 
 echo "yabai configuration loaded.."
 
