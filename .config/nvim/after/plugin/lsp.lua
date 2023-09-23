@@ -3,9 +3,9 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-	'tsserver',
---	'eslint',
+	'clangd',
 	'rust_analyzer',
+	'lua_ls',
 })
 
 local cmp = require('cmp')
@@ -39,6 +39,13 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 	vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
+
+-- disable clangd auto import
+require('lspconfig').clangd.setup{
+  cmd = {
+	  "--header-insertion=never",
+  }
+}
 
 lsp.setup()
 
