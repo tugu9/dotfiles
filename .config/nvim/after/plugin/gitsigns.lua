@@ -14,3 +14,6 @@ vim.keymap.set('n', '<leader>gp', function()
 vim.keymap.set('n', '<leader>gb', function()
     gitsigns.blame_line() end, { remap = true })
 
+vim.keymap.set('n', '<leader>rs', function()
+    gitsigns.reset_hunk() end, { remap = true })
+

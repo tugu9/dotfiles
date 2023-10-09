@@ -114,6 +114,7 @@ alias c="clear"
 alias v="nvim"
 alias dowork="~/scripts/switch-profile.sh work"
 alias doplay="~/scripts/switch-profile.sh play"
+alias rm="rm -v"
 
 ##zoxide
 eval "$(zoxide init zsh)"
