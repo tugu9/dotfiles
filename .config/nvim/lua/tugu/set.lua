@@ -4,8 +4,23 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 
 vim.opt.tabstop = 8
-vim.opt.softtabstop = 4
+vim.opt.softtabstop = 0
 vim.opt.shiftwidth = 8
+vim.opt.expandtab = false
+
+function legacy_indent()
+	vim.opt.shiftwidth = 4
+	vim.opt.expandtab = true
+end
+
+function default_indent()
+	vim.opt.tabstop = 8
+	vim.opt.shiftwidth = 8
+	vim.opt.expandtab = false
+end
+
+vim.api.nvim_create_user_command('Lind', legacy_indent, {})
+vim.api.nvim_create_user_command('Dind', default_indent, {})
 
 -- render whitespace
 vim.opt.listchars = {
@@ -17,7 +32,8 @@ vim.opt.listchars = {
 }
 vim.opt.list = true
 
-vim.opt.smartindent = true
+vim.opt.autoindent = true
+vim.opt.smartindent = false
 
 vim.opt.wrap = false
 
