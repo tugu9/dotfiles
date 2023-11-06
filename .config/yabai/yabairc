@@ -1,10 +1,9 @@
 #!/usr/bin/env sh
 #YABAI CONFIGURATION 
 
-# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
 yabai -m signal --add event=display_added action="sleep 1 && $HOME/.config/yabai/create_spaces.sh"
 yabai -m signal --add event=display_removed action="sleep 1 && $HOME/.config/yabai/create_spaces.sh"
@@ -57,7 +56,6 @@ yabai -m rule --add app="Fantastical" manage=off
 yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^Calender$" manage=off
 yabai -m rule --add app="^TickTick$" manage=off
-#yabai -m rule --add app="^iTerm2$" manage=off
 yabai -m rule --add label="Firfox PIP" app="^Firefox$" title="^(Picture-in-Picture)$" manage=off
 yabai -m rule --add label="Microsoft Teams Notification" app="^Microsoft Teams$" title="^Microsoft Teams Notification$" manage=off
 yabai -m rule --add app="^Flux$" manage=off
@@ -109,18 +107,6 @@ yabai -m config window_opacity_duration 0.00
 yabai -m config active_window_opacity 1.0
 yabai -m config normal_window_opacity 0.90
 
-yabai -m window_animation_duration 0.3
-
-# Border highlighting for active window
-yabai -m config window_border on
-yabai -m config window_border_hidpi off
-yabai -m config window_border_blur off
-yabai -m config window_border_width 3
-yabai -m config window_border_radius 11
-yabai -m config active_window_border_color 0xffe1e3e4
-yabai -m config normal_window_border_color 0xff494d64
-yabai -m config insert_feedback_color      0xff9dd274
-
 # set mouse follows focus mode (default: off)
 # yabai -m config mouse_follows_focus on
 
@@ -136,21 +122,11 @@ yabai -m config mouse_action2 move
 
 ## Paddings
 yabai -m config layout bsp
-#yabai -m config top_padding 7
 yabai -m config top_padding 38
 yabai -m config bottom_padding 5
 yabai -m config left_padding 5
 yabai -m config right_padding 5
 yabai -m config window_gap 3
-
-## Display specific paddings
-#yabai -m config external_bar main:7:0
-#yabai -m config --space 4 top_padding 38
-#yabai -m config --space 5 top_padding 38
-#yabai -m config --space 6 top_padding 38
-#yabai -m config --space 7 top_padding 38
-#yabai -m config --space 8 top_padding 38
-#yabai -m config --space 9 top_padding 38
 
 echo "yabai configuration loaded.."
 
