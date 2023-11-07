@@ -17,8 +17,7 @@ font:
   AppleFontSmoothing: true
 
 import:
-   - ~/git-repos/alacritty_dracula/alacritty-master/dracula.yml
-   # - ~/git-repos/alacritty_catppuccin/alacritty/catppuccin-macchiato.yml
+   - ~/git-repos/alacritty_catppuccin/alacritty/catppuccin-macchiato.yml
 
 key_bindings:
   - { key: N,         mods: Command,   action: CreateNewWindow              }
