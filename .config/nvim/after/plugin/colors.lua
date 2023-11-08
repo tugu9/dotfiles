@@ -12,6 +12,8 @@ require('catppuccin').setup({
 			LineNr = { fg = colors.overlay0 },
 			WhiteSpace = { fg = colors.overlay0 },
 			NonText = { fg = colors.overlay0 },
+			StatusLine = { bg = colors.lavender, fg = colors.crust },
+			StatusLineNC = { bg = colors.base, fg = colors.text }
 		}
 	end
 })
