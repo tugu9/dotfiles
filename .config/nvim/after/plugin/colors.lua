@@ -13,7 +13,8 @@ require('catppuccin').setup({
 			WhiteSpace = { fg = colors.overlay0 },
 			NonText = { fg = colors.overlay0 },
 			StatusLine = { bg = colors.lavender, fg = colors.crust },
-			StatusLineNC = { bg = colors.base, fg = colors.text }
+			StatusLineNC = { bg = colors.base, fg = colors.text },
+			Pmenu = { bg = colors.base },
 		}
 	end
 })

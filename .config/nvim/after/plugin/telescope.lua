@@ -22,4 +22,6 @@ vim.keymap.set('n', '<leader>ps', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 vim.keymap.set('n', '<leader>vws', builtin.lsp_document_symbols, {})
-vim.keymap.set('n', '<leader>pp', ":Telescope ")
+vim.keymap.set('n', '<leader>if', builtin.current_buffer_fuzzy_find, {})
+vim.keymap.set('n', '<leader>igs', builtin.git_status, {})
+vim.keymap.set('n', '<leader>igc', builtin.git_bcommits, {})
