@@ -10,7 +10,7 @@ window:
 
 font:
   normal:
-    family: "JetbrainsMono Nerd Font Mono"
+    family: "JetBrainsMono NF"
     style: Regular
   size: 15.0
   # use_thin_strokes: true

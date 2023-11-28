@@ -40,12 +40,12 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
--- disable clangd auto import
-require('lspconfig').clangd.setup{
-  cmd = {
-	  "--header-insertion=never",
-  }
-}
+lsp.setup({
+	cmd = {
+		-- disable clangd auto import
+		"--header-insertion=never",
+	}
+})
 
 lsp.setup()
 
