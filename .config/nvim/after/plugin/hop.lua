@@ -22,8 +22,11 @@ vim.keymap.set('n', '<leader>F', function()
 end, { remap = true })
 vim.keymap.set('n', '<leader>s', function()
     hop.hint_char1() end, { remap = true })
+vim.keymap.set('x', '<leader>s', function()
+    hop.hint_char1() end, { remap = true })
 
 vim.keymap.set('n', '<leader>j', function() hop.hint_lines_skip_whitespace() end, { remap = true })
+vim.keymap.set('x', '<leader>j', function() hop.hint_lines_skip_whitespace() end, { remap = true })
 vim.keymap.set('n', '<leader>k', function() hop.hint_lines_skip_whitespace() end, { remap = true })
 
 vim.keymap.set('n', '<leader>/', function() hop.hint_patterns() end, { remap = true })

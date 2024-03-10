@@ -142,5 +142,7 @@ return require('packer').startup(function(use)
   use("laytan/cloak.nvim")
   use("ddrscott/vim-side-search")
 
+  use {'ojroques/nvim-osc52'}
+
 end)
 
