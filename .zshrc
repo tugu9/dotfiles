@@ -105,6 +105,7 @@ alias v="nvim"
 alias dowork="~/scripts/switch-profile.sh work"
 alias doplay="~/scripts/switch-profile.sh play"
 alias rm="rm -v"
+alias brightness="~/scripts/brightness"
 
 ##zoxide
 eval "$(zoxide init zsh)"

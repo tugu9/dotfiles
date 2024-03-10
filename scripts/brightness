@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ $1 == "all" ];
+then
+	ddcutil -d 1 setvcp 10 $2
+	ddcutil -d 2 setvcp 10 $2
+else
+	ddcutil -d $1 setvcp 10 $2
+fi
