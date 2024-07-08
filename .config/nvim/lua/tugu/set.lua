@@ -23,6 +23,19 @@ end
 vim.api.nvim_create_user_command('Lind', legacy_indent, {})
 vim.api.nvim_create_user_command('Dind', default_indent, {})
 
+vim.g["diagnostics_active"] = true
+function toggle_diagnostics()
+    if vim.g.diagnostics_active then
+        vim.g.diagnostics_active = false
+        vim.diagnostic.disable()
+    else
+        vim.g.diagnostics_active = true
+        vim.diagnostic.enable()
+    end
+end
+
+vim.api.nvim_create_user_command('Diag', toggle_diagnostics, {})
+
 -- render whitespace
 vim.opt.listchars = {
 	tab = '› ',
@@ -33,8 +46,14 @@ vim.opt.listchars = {
 }
 vim.opt.list = true
 
-vim.opt.autoindent = true
-vim.opt.smartindent = false
+-- vim.opt.autoindent = true
+-- vim.opt.smartindent = false
+
+-- try to cinindent the linux kernel style
+vim.opt.autoindent = false
+vim.opt.cindent = true
+vim.opt.cinoptions = ":0,t0,(0"
+vim.opt.textwidth = 80
 
 vim.opt.wrap = false
 

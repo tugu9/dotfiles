@@ -16,6 +16,7 @@ telescope.setup {
 }
 
 local builtin = require('telescope.builtin')
+
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', '<leader>pg', builtin.git_files, {})
 vim.keymap.set('n', '<leader>ps', function()
@@ -26,3 +27,7 @@ vim.keymap.set('n', '<leader>if', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>igs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>igc', builtin.git_bcommits, {})
 vim.keymap.set('n', '<leader>ir', builtin.lsp_references, {})
+vim.keymap.set('n', '<leader>ir', function()
+	builtin.lsp_references({ show_line = false })
+end)
+vim.keymap.set('n', '<leader>it', builtin.resume, {})

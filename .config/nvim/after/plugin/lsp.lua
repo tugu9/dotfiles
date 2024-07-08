@@ -30,6 +30,9 @@ lsp.setup_nvim_cmp({
 lsp.on_attach(function(client, bufnr)
 	local opts = {buffer = bufnr, remap = false}
 
+	-- Disable lsp formatexpr (use the internal one)
+	vim.opt.formatexpr = ""
+
 	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 	-- vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
 	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -43,12 +46,15 @@ end)
 
 lsp.setup({
 	cmd = {
+		"clangd",
+		"--suggest-missing-includes",
+		"-fms-extensions",
 		-- disable clangd auto import
 		"--header-insertion=never",
-	}
+	},
 })
 
-lsp.setup()
+-- lsp.setup()
 
 vim.diagnostic.config({
 	virtual_text = true

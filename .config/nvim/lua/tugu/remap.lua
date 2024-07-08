@@ -42,11 +42,27 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 --vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
+-- tab nav
+vim.keymap.set("n", "<A-,>", "<cmd>tabprevious<CR>")
+vim.keymap.set("n", "<A-.>", "<cmd>tabnext<CR>")
+
 vim.keymap.set("n", "d/", function()
     vim.cmd("noh")
 end)
 
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
+vim.keymap.set("n", "tt", function()
+    vim.cmd("tab split")
 end)
+vim.keymap.set("n", "tq", function()
+    vim.cmd("tabclose")
+end)
+vim.keymap.set("n", "<leader>q", function()
+    vim.cmd("quit")
+end)
+
+vim.keymap.set("n", "<leader>w", "gqq")
+
+-- vim.keymap.set("n", "<leader><leader>", function()
+--     vim.cmd("so")
+-- end)
 

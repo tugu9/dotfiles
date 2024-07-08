@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.3',
+	  'nvim-telescope/telescope.nvim', tag = '0.1.8',
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
@@ -137,12 +137,27 @@ return require('packer').startup(function(use)
 	  }
   }
 
+  use("dhananjaylatkar/cscope_maps.nvim")
+  -- use {
+	 --  "ludovicchabant/vim-gutentags",
+	 --  config = function()
+		--   vim.g.gutentags_modules = {"cscope_maps"} -- This is required. Other config is optional
+		--   vim.g.gutentags_cscope_build_inverted_index_maps = 1
+		--   vim.g.gutentags_cache_dir = vim.fn.expand("~/.gutentags")
+		--   vim.g.gutentags_file_list_command = "fdfind -e c -e h"
+		--   -- vim.g.gutentags_trace = 1
+	 --  end,
+  -- }
+
   use("folke/zen-mode.nvim")
   use("eandrju/cellular-automaton.nvim")
   use("laytan/cloak.nvim")
   use("ddrscott/vim-side-search")
 
   use {'ojroques/nvim-osc52'}
+
+  -- Session manager
+  use {'rmagatti/auto-session'}
 
 end)
 
