@@ -8,6 +8,6 @@ text="$arch"
 # tooltip="$packages"
 # echo "${message//[0-9]/X}"
 # tooltip="$(echo "$output" | sed -z 's/\n/\\n/g')"
-tooltip="$(echo "$packages" | sed -z 's/\n/\\n/g')"
+tooltip="$(echo "$packages" | grep . | sed -z 's/\n/\\n/g')"
 
 echo "{\"text\": \"$text\", \"tooltip\": \"$tooltip\"}"

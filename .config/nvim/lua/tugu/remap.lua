@@ -4,6 +4,12 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+-- wrap the operators onto the newline after wrapping
+-- vim.keymap.set("n", "gqq", [[gqq|:s/\s*\([&|]\)\([&|]\)\n\(\s*\)/\r\3\1\2\ /ge<CR>|==|:noh<CR>]])
+vim.keymap.set("v", "gq", [[gq|gv|:s/\s*\([&|]\)\([&|]\)\n\(\s*\)/\r\3\1\2\ /ge<CR>|gv|=|:noh<CR>]])
+-- vim.keymap.set("n", "==", [[==|:s/\s*\([&|]\)\([&|]\)\n\(\s*\)/\r\3\1\2\ /ge<CR>|==|:noh<CR>]])
+vim.keymap.set("v", "=", [[=|gv|:s/\s*\([&|]\)\([&|]\)\n\(\s*\)/\r\3\1\2\ /ge<CR>|gv|=|:noh<CR>]])
+
 
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -11,12 +17,12 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("n", "<leader>vwm", function()
-    require("vim-with-me").StartVimWithMe()
-end)
-vim.keymap.set("n", "<leader>svwm", function()
-    require("vim-with-me").StopVimWithMe()
-end)
+-- vim.keymap.set("n", "<leader>vwm", function()
+--     require("vim-with-me").StartVimWithMe()
+-- end)
+-- vim.keymap.set("n", "<leader>svwm", function()
+--     require("vim-with-me").StopVimWithMe()
+-- end)
 
 -- map U to redo
 vim.keymap.set("n", "U", "<C-r>")

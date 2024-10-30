@@ -75,3 +75,12 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "81,101"
 
+-- For the auto ctag regeneration on file save
+-- local group = vim.api.nvim_create_augroup("CscopeBuild", { clear = true })
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--   pattern = { "*.c", "*.h" },
+--   callback = function ()
+--     vim.cmd("Cscope db build")
+--   end,
+--   group = group,
+-- })

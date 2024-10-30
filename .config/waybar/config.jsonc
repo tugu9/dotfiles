@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "output": "HDMI-A-1",
+  "output": "DP-3",
   "margin-bottom": 0,
   "modules-left": [
     "hyprland/workspaces",
@@ -15,7 +15,8 @@
     "cpu",
     "memory",
     "pulseaudio",
-    "custom/update"
+    "custom/audioind",
+    "custom/updates",
   ],
   "custom/cmus": {
     "format": "󰎈 {}",
@@ -61,21 +62,21 @@
     "separate-outputs": false,
   },
   "hyprland/workspaces": {
-    "format": "{icon}",
+    "format": "<span font='15'>{icon}</span>",
     "format-icons": {
-      // "1": "󰲠",
-      // "2": "󰲢",
-      // "3": "󰲤",
-      // "4": "󰲦",
-      // "5": "󰲨",
-      // "6": "󰲪",
-      // "7": "󰲬",
-      // "8": "󰲮",
-      // "9": "󰲰",
-      // "10": "󰿬",
+      "1": "󰲠",
+      "2": "󰲢",
+      "3": "󰲤",
+      "4": "󰲦",
+      "5": "󰲨",
+      "6": "󰲪",
+      "7": "󰲬",
+      "8": "󰲮",
+      "9": "󰲰",
+      "10": "󰿬",
       // "-99": "",
-      "active": "",
-      "default": "",
+      // "active": "",
+      // "default": "",
     },
     // "persistent_workspaces": {
     //   "1": ["HDMI-A-1"],
@@ -135,12 +136,24 @@
     "format": "<span size='14pt' font_weight='bold'>{:%H:%M}</span>",
     "format-alt": "<span size='14pt' font_weight='bold'>{:%d/%m/%Y}</span>",
   },
-  "custom/update": {
-    "tooltip": true,
-    "tooltip-format": "{tooltip}",
-    "format": "  {}",
+  "custom/updates": {
+    "tooltip": "false",
+    // "tooltip-format": "{tooltip}",
+    "format": "   {} ",
     "interval": 300,                                  // every 5 min
     "exec": "~/.config/waybar/scripts/updates",       // # of updates as json
     "return-type": "json"
+  },
+  "custom/audioind": {
+      "format": "{icon}",
+      "exec": "sway-audio-idle-inhibit --dry-print-both-waybar",
+      "exec-if": "which sway-audio-idle-inhibit",
+      "return-type": "json",
+      "format-icons": {
+          "output": "",
+          "input": "",
+          "output-input": "  ",
+          "none": ""
+      }
   },
 }
